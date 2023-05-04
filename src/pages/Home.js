@@ -6,7 +6,6 @@ const Home = () => {
   const [todoList, setTodoList] = useState([]);
 
   return (
-    //
     <div className="homepage__container">
       {/* ToDo Item을 추가할 수 있는 input 박스 */}
       <InputBox todoList={todoList} setTodoList={setTodoList} />
