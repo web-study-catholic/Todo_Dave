@@ -20,6 +20,10 @@ const InputBox = ({ todoList, setTodoList }) => {
             checked: false,
             deleted: false,
         });
+
+        // todoList 값을 로컬 스토리지에 저장
+        localStorage.setItem('todoList', JSON.stringify(nextTodoList));
+
         setTodoList(nextTodoList);
 
         // input 값 초기화 및 포커싱
