@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ToDoItem from './ToDoItem';
+import '../App.css';
 
 const ToDoItemList = ({ title, todoList, setTodoList, checkedList }) => (
     <div className="todoapp__list">

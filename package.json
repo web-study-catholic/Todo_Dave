@@ -10,6 +10,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-drag-list": "^1.1.0",
+    "react-router-dom": "^6.11.1",
     "react-scripts": "5.0.1",
     "react-sortablejs": "^6.1.4",
     "recoil": "^0.7.7",
