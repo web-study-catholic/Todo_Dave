@@ -34,6 +34,15 @@
   width: 50px;
   font-weight: bold;
 }
+.todoapp__inputbox-deleteall-btn{
+  border: none;
+  border-radius: 0;
+  background-color: blueviolet;
+  color: aliceblue;
+  height: 50px;
+  width: 50px;
+  font-weight: normal;
+}
 
 /* ToDo Item List */
 .todoapp__list {

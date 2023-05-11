@@ -54,6 +54,11 @@ const ToDoItem = ({ todoItem, todoList, setTodoList }) => {
             setTodoList(nextTodoList);
         }
     };
+    const onClickDeleteAllButton = () => {
+        if (window.confirm('모든 항목을 삭제하시겠습니까?')) {
+            setTodoList([]);
+        }
+    };
 
     return (
         <li className="todoapp__item">
@@ -103,7 +108,7 @@ const ToDoItem = ({ todoItem, todoList, setTodoList }) => {
             </button>
         </li>
     );
-
+}
     ToDoItem.propTypes = {
         todoItem: PropTypes.shape({
             id: PropTypes.number,
@@ -117,5 +122,5 @@ const ToDoItem = ({ todoItem, todoList, setTodoList }) => {
         ),
         setTodoList: PropTypes.func.isRequired,
     };
-}
+
 export default ToDoItem;

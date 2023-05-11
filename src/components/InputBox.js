@@ -20,15 +20,15 @@ const InputBox = ({ todoList, setTodoList }) => {
             checked: false,
             deleted: false,
         });
-
-        // todoList 값을 로컬 스토리지에 저장
-        localStorage.setItem('todoList', JSON.stringify(nextTodoList));
-
         setTodoList(nextTodoList);
 
         // input 값 초기화 및 포커싱
         setText('');
         inputRef.current.focus();
+    };
+    const onClickDeleteAllButton = () => {
+        // todoItemList에서 모든 아이템 삭제
+        setTodoList([]);
     };
 
     return (
@@ -46,6 +46,9 @@ const InputBox = ({ todoList, setTodoList }) => {
             {/* 입력 후 아이템 추가 버튼 */}
             <button type="submit" className="todoapp__inputbox-add-btn">
                 추가
+            </button>
+            <button type="button" className="todoapp__inputbox-deleteall-btn" onClick={onClickDeleteAllButton}>
+                전체 삭제
             </button>
         </form>
     );
