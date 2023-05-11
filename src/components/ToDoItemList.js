@@ -1,4 +1,3 @@
-import DragList from 'react-drag-list';
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ToDoItem from './ToDoItem';
@@ -14,23 +13,26 @@ const ToDoItemList = ({ title, todoList, setTodoList, checkedList }) => {
     return (
         <div className="todoapp__list">
             <p className="todoapp__list-tit">{title}</p>
+            <ul className="todoapp__list-ul">
+                {todoList &&
+                    todoList.map((todoItem) => {
+                        if (todoItem.deleted) return null;
+                        if (checkedList !== todoItem.checked) return null;
 
-            <DragList
-                list={todoList}
-                itemKey="id"
-                template={(todoItem, index) => (
-                    <ToDoItem
-                        key={todoItem.id}
-                        todoItem={todoItem}
-                        todoList={todoList}
-                        setTodoList={setTodoList}
-                    />
-                )}
-                onUpdate={(newList) => setTodoList(newList)}
-            />
+                        return (
+                            <ToDoItem
+                                key={todoItem.id}
+                                todoItem={todoItem}
+                                todoList={todoList}
+                                setTodoList={setTodoList}
+                            />
+                        );
+                    })}
+            </ul>
         </div>
     );
 };
+
 
 ToDoItemList.propTypes = {
     title: PropTypes.string.isRequired,
@@ -43,7 +45,6 @@ ToDoItemList.propTypes = {
     setTodoList: PropTypes.func.isRequired,
     checkedList: PropTypes.bool.isRequired,
 };
-
 export default ToDoItemList;
 
 
