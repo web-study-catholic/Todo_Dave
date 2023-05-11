@@ -4,11 +4,15 @@ import PropTypes from 'prop-types';
 const ToDoItem = ({ todoItem, todoList, setTodoList }) => {
     const [edited, setEdited] = useState(false);
     const [newText, setNewTest] = useState(todoItem.text);
-
+    //useRef를 쓴 이유 : 수정모드에서 input요소에 포커싱을 주기 위해서
+    //editInputRef라는 이름으로 useRef를 생성하고, useEffect를 이용해 edited 값이 변경될 때마다 해당 input 요소에 focus를 줌
     const editInputRef = useRef(null);
 
+    //useRef hook을 사용해서 초기값은 null로, editInputRef.current를 사용하여 input 요소를 참조
     useEffect(() => {
         // edit 모드일때 포커싱을 한다.
+        //edited 값이 변경될 때마다 실행됨
+        //edited 값이 true일 경우 editInputRef.current.focus();가 호출, input 요소에 자동으로 포커싱
         if (edited) {
             editInputRef.current.focus();
         }
