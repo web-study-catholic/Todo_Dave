@@ -83,6 +83,16 @@
   font-size: 1em;
   box-sizing: border-box;
 }
+.todoapp__item-save-btn {
+  flex: 1;
+  border: none;
+  background-color: greenyellow;
+  height: 36px;
+  width: 36px;
+  padding : 5px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
 .todoapp__item-edit-input:focus {
   outline: none;
 }
@@ -96,11 +106,14 @@
 }
 .todoapp__item-edit-btn,
 .todoapp__item-delete-btn {
+  flex: 1;
   border: none;
   border-radius: 0;
   height: 36px;
   width: 36px;
+  padding : 5px;
   background-color: inherit;
+  box-sizing: border-box;
 }
 .todoapp__item-edit-btn:hover,
 .todoapp__item-delete-btn:hover {

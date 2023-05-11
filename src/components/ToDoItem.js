@@ -28,6 +28,16 @@ const ToDoItem = ({ todoItem, todoList, setTodoList }) => {
         setEdited(true);
     };
 
+    const onClickSaveButton = () => {
+        const nextTodoList = todoList.map((item) => ({
+            ...item,
+            text: item.id === todoItem.id ? newText : item.text, // 새로운 아이템 내용을 넣어줌
+        }));
+        setTodoList(nextTodoList);
+
+        setEdited(false);
+    };
+
     const onChangeEditInput = (e) => {
         setNewTest(e.target.value);
     };
@@ -71,14 +81,22 @@ const ToDoItem = ({ todoItem, todoList, setTodoList }) => {
             />
             {/* 아이템 내용 */}
             {edited ? (
-                <input
-                    type="text"
-                    className="todoapp__item-edit-input"
-                    value={newText}
-                    ref={editInputRef}
-                    onChange={onChangeEditInput}
-                    onKeyPress={onClickSubmitButton}
-                />
+                <div className="todoapp__item-edit-container">
+                    <input
+                        type="text"
+                        className="todoapp__item-edit-input"
+                        value={newText}
+                        ref={editInputRef}
+                        onChange={onChangeEditInput}
+                    />
+                    <button
+                        type="button"
+                        className="todoapp__item-save-btn"
+                        onClick={onClickSaveButton}
+                    >
+                        완료
+                    </button>
+                </div>
             ) : (
                 <span
                     className={`todoapp__item-ctx ${
@@ -89,7 +107,7 @@ const ToDoItem = ({ todoItem, todoList, setTodoList }) => {
       </span>
             )}
             {/* 수정 버튼 */}
-            {!todoItem.checked && (
+            {!edited && !todoItem.checked && (
                 <button
                     type="button"
                     className="todoapp__item-edit-btn"
